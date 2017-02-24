@@ -1,6 +1,6 @@
-Open Weather Station
+# Open Weather Station
 
-# The Idea
+## THE IDEA
 To construct a fully open source, open hardware weather station, which publishes it's data in realtime via an open data API on the web.
 
 The main interest in this project is to deal with the full data-processing steps from a sensor and it's hardware over the data transmission towards a server to the final data presentation on the web - everything the open way. This will bring together some re-occuring challenges of hardware and software engineering, like power supply (limations, efficency), sensors (resolution, calibration), housing (maintainance, materials), data transmission (protocolls, checks) and web-presentation (API, visualization, maintainance).
@@ -10,13 +10,14 @@ In this repository, the full documentation and the process towards the construct
 
 ## TIMELINE
 The project is planned for the spring and summer of 2017 to happen - from research and planning to the construction of it. 
+
 | Time     | Activity       |
 |---------------|--------------|
 | March - Mai | Research |
 | June - July | Planing and Sourcing |
 | July - September | Construction |
 
-## Research
+## RESEARCH
 - Open Hardware Guidelines and Rules
 - Best Hardware for the job
 - Check professional solutions
@@ -269,16 +270,28 @@ Create pictures each day at certain timespots over a full year for automated ima
 
 ## CONSTRUCTION
 
+## CONTRIBUTE
+In the spirit of free software, everyone is invited to contribute to improve this project.
 
-## PARTICIPATE
+**All Open Weather Station updates, bugs, and feature additions are organized via GitHub's public [issue tracker](https://github.com/skasberger/open-weather-station/issues) in this repository.** 
 
-Wiki
+If you do not already have a GitHub account, you can [sign up for GitHub here](https://github.com/). In the spirit of open source software, everyone is encouraged to help improve this project. Here are some ways you can contribute:
+- by reporting bugs
+- by suggesting new features
+- by bringing in your knowledge and discussing the project in our [wiki](https://github.com/skasberger/open-weather-station/wiki)
+- by translating content to a new language
+- by writing or editing documentation
+- by writing specifications
+- by writing code and documentation (**no pull request is too small**: fix typos, add code comments, clean up inconsistent whitespace)
+- by reviewing [pull requests](https://github.com/skasberger/open-weather-station/pulls).
+- by closing issues
+- by using the data for visualizations or an analysis
 
-Issues
+If you have any questions, you can email me team at [open-weather-station@stefankasberger.at](mailto:open-weather-station@stefankasberger.at).
 
-Research
-
-Pick your part
+#### Submit Great Issues
+* Before submitting a new [issue](https://github.com/skasberger/open-weather-station/issues), check to make sure [a similar issue isn't already open](https://github.com/skasberger/open-weather-station/issues?q=is%3Aissue+is%3Aopen). If one is, contribute to that issue thread with your feedback.
+* When submitting a bug report, please try to provide as much detail as possible, i.e. a screenshot or [gist](https://gist.github.com/) that demonstrates the problem, the technology you are using, and any relevant links. 
 
 # RESOURCES
 - [Wetterstation - Wikipedia](https://de.wikipedia.org/wiki/Wetterstation)
