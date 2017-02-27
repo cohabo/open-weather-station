@@ -3,25 +3,27 @@
 ## THE IDEA
 To construct a fully open source, open hardware weather station, which publishes it's data in realtime via an open data API on the web.
 
-The main interest in this project is to deal with the full data-processing steps from a sensor and it's hardware over the data transmission towards a server to the final data presentation on the web - everything the open way. This will bring together some re-occuring challenges of hardware and software engineering, like power supply (limations, efficency), sensors (resolution, calibration), housing (maintainance, materials), data transmission (protocolls, checks) and web-presentation (API, visualization, maintainance).
+The main interest in this project is to get an understanding of the full data-processing from getting the data from a sensor to the data presentation on the web - everything the open way. This will bring together some re-occuring challenges of hardware and software engineering, like power supply (limations, efficency), sensors (resolution, calibration), housing (maintainance, materials), data transmission (protocolls, checks), documentation (how, where) and web-presentation (API, visualization, maintainance).
 
-In this repository, the full documentation and the process towards the construction will be organized and documented.
+In this repository, all materials will be collected, organized and discussed.
 
-
-## TIMELINE
-The project is planned for the spring and summer of 2017 to happen - from research and planning to the construction of it. 
+**TIMELINE**
+The project is planned for the year 2017 to happen - from research and planning to the construction of it. 
 
 | Time     | Activity       |
 |---------------|--------------|
-| March - Mai | Research |
-| June - July | Planing and Sourcing |
-| July - September | Construction |
+| March - Mai | Research: Setting up requirements and solutions. |
+| June - July | Plan the design and source the parts. |
+| September | Constructing: First running version with basic functionality (minimum: housing with hardware, temperature measurement, open data api, line-chart). |
+| October - ... | Continous improvement of software and hardware. |
+
 
 ## RESEARCH
 - Open Hardware Guidelines and Rules
 - Best Hardware for the job
 - Check professional solutions
-	- http://www.funkwetterstationen-test.com/
+	- [openSenseMap](https://opensensemap.org/)
+		- [Docs](https://home.books.sensebox.de/de/)
 	- [Netatmo](https://www.netatmo.com/product/weather/weatherstation)
 		- [Additional Module](https://www.netatmo.com/product/weather/weatherstation/accessories#module)
 		- [Mount](https://shop.netatmo.com/eur_en/netatmo-mount-for-wind-gauge-rain-gauge.html)
@@ -37,111 +39,32 @@ The project is planned for the spring and summer of 2017 to happen - from resear
 	- [Raspberry Pi Weather Station](https://www.raspberryweather.com/)
 	- [Open Source Weather Station Development](http://www.wetter-garching.de/howto.html)
 	- [Tinkerforge: Starter Kit Weather Station](https://www.tinkerforge.com/en/doc/Kits/WeatherStation/WeatherStation.html)
+- [Location](http://www.funkwetterstationen-test.com/index.php/category/standort-aufstellung/)
+- [WeeWX](http://www.weewx.com/): Open Source Software for Weather Stations
 
-## PLANING
 
-The minimum requirement is: a small case with a temperature and relative humidity sensor in it, which transfers data onto a server in the web to offer the measurements via an Open Data API.
+## BASIC REQUIREMENTS V1
+Open Hardware Weather Station. The first version should have a case with a temperature sensor, which transmits the data onto a server in the web in realtime. The server then offers the data via an open data api endpoint and plots an up-to-date line-chart of the measurements on a website. After this basic setup, the weather station should 
 
-**General Requirements:**
-- as cheap as possible
+### General
+- fully open: open source code, open hardware, open educational resources
+- easy to improve, adapt and extend
 - easy to copy
-- fully open source
-- fully open hardware: documented, open hardware parts
-- easy to maintain
-- easy to repair
+- easy to maintain and repair (software and hardware)
 - good quality of measurements
-- durable: physical and chemical effects (strong wind, hail, strong rain, uv, sand)
+- durable against physical and chemical effects (strong wind, hail, strong rain, uv, sand)
+- as cheap as possible
 
-**General Questions:**
+**Questions:**
 - what copyright license applies to: source code, raw data and documentation
 
-### Housing
-Housing for the weather station. 
-
-**Requirements:**
-- Protect the hardware from outer damage
-- Safeguard correct measurements of the sensors inside
-- durable
-- stable and easy mounting
-
-**Questions:**
-- Maybe there is already a plan on the web to create one in a 3D printer or by wood.
-- which material is best for this: wood, plastic, steel, 
-- What are the general requirements for an official weather station?
-
-**Research**
-- [Standort-Aufstellungen](http://www.funkwetterstationen-test.com/index.php/category/standort-aufstellung/)
-
-### Sensors
-
-**Sensor Requirements:**
-- Specification
-- Calibration: cheap, Certificate
-- low power usage
-- high resolution
-- low measuring error
-
-**Sensor Questions:**
-- What is the best temporal resolution for the measurement?
-- What sensor must be in the weather station, and which one should be optional as extensions later on?
-- How will the timestamp be created?
-
-#### 1. Temperatur and relative Humidity
-
-**Requirements:**
-- measure temperature
-- measure relative humidity
-
-**Questions:**
-
-#### 2. Insolation
-
-**Requirements:**
-- measure insolation energy per squaremeter
-
-**Questions:**
-
-#### 3. Windspeed (Anemometer)
-
-**Requirements:**
-
-**Questions:**
-- is there a combined device with wind-direction and wind-speed?
-
-#### 4. Winddirection (Anemoskop)
-
-**Requirements:**
-
-**Questions:**
-
-#### 5. Dust
-
-**Requirements:**
-
-**Questions:**
-
-#### 6. Air Pressure
-
-**Requirements:**
-
-**Questions:**
-
-#### Optional
-- Groundtemperature
-- Soiltemperature
-- CO2
-- Sonometer (loudness)
-- precipitation: when and how much
-	- https://shop.netatmo.com/eur_en/netatmo-rain-gauge.html
-
-### Hardware
-
+### Board
 Arduino or Raspberry Pi or something else i guess. Power supply is a central question: how much power is needed? How often should the data be pushed on the server?
 
-The data must be stored on the computer locally, so that a data transfer loss does not lead to a data loss. 
+The data must be stored on the board locally, so that a data transfer loss does not lead to a data loss. 
 
 **Requirements:**
-- new sensors should be easy to attach
+- new sensors should be easy to add and attach (sw and hw)
 - protect electrical boards from outer influences
 - report errors to user
 - monitoring functions for sensors and other weather station parameters.
@@ -152,10 +75,34 @@ The data must be stored on the computer locally, so that a data transfer loss do
 - how and when should the collected data be deleted?
 - Is a on/off button needed for the general power supply?
 
-#### Software
-[WeeWX](http://www.weewx.com/): Open Source Software for Weather Stations
+### Sensors
+- Specification
+- Calibration: cheap, Certificate
+- low power usage
+- high resolution
+- low measuring error
 
-### Data Transmission Station 2 Server
+**Questions:**
+- What is the best temporal resolution for the measurement?
+- What sensor must be in the weather station, and which one should be optional as extensions later on?
+- How will the timestamp be created?
+
+### Housing
+
+**Requirements:**
+- Protect the hardware from outer damage
+- Safeguard correct measurements of the sensors inside
+- durable
+- stable and easy mounting
+
+Housing for the weather station. 
+
+**Questions:**
+- Maybe there is already a plan on the web to create one in a 3D printer or by wood.
+- which material is best for this: wood, plastic, steel, 
+- What are the general requirements for an official weather station?
+
+### Data Transmission: Weather Station 2 Server
 How should the data be transfered from the weather station to the server? Via httprest PUT method? 
 
 **Requirements:**
@@ -166,7 +113,7 @@ How should the data be transfered from the weather station to the server? Via ht
 **Questions:**
 - should only changes be transmitted?
 
-## Server
+### Server
 Small server to host the data and the webservice. 
 
 **Requirements:**
@@ -175,10 +122,7 @@ Small server to host the data and the webservice.
 - Flask
 - handle endless numbers of weather stations
 
-**Questions:**
-
-### Webservice
-#### API
+### API
 Open data API of the measurements. 
 
 **Requirements:**
@@ -198,7 +142,7 @@ Open data API of the measurements.
 - Which software to use for it? Flask?
 - How to deliver documents via the API?
 
-#### Monitoring
+### Monitoring Frontend
 Monitor and control the weather station at a web-frontend.
 
 **Requirements:**
@@ -222,7 +166,7 @@ Monitor and control the weather station at a web-frontend.
 **Questions:**
 - is there a working solution for this?
 
-#### Visualization
+### Web-Visualization
 Visualize the measurements for everyone accessible on a web-frontend. Use the API for data access.
 
 **Requirements:**
@@ -232,11 +176,34 @@ Visualize the measurements for everyone accessible on a web-frontend. Use the AP
 - distribution of measures: default timeintervall, change timeintervall, 
 - average values: default timeintervall, change timeintervall, 
 - responsive
+- map with all weather stations
 
 **Questions:**
 - Pandas and matplotlib oder D3?
 
-#### Alexa 
+
+## ADVANCED REQUIREMENTS
+
+### Sensors
+
+**Requirements:**
+- insolation
+- Windspeed (Anemometer)
+- Winddirection (Anemoskop)
+- Dust
+- Air Pressure
+- Groundtemperature
+- Soiltemperature
+- CO2
+- Magnetometer
+- Sonometer (loudness)
+- precipitation: when and how much
+	- https://shop.netatmo.com/eur_en/netatmo-rain-gauge.html
+
+**Questions:**
+- is there a combined device with wind-direction and wind-speed?
+
+### Alexa 
 Connect Amazon Alexa to the data/api.
 
 ### Solarpanel
@@ -261,14 +228,28 @@ Create pictures each day at certain timespots over a full year for automated ima
 - How to keep the lens clean?
 - How to do the power supply?
 
+### Infrared Camera
+
+## PLANING
+
 ## SOURCING
+Will be done after design is finished, 1-2 weeks before the construction session.
+
+Shops:
 - Conrad
 - Amazon
+- RS Components
 
 ### Parts List
 
 
 ## CONSTRUCTION
+
+This will be done in a 3-5 days makeathon, most likely happening in August/September 2017 in Vöcklabruck, Austria.
+
+## IMPROVMENTS
+
+The project lives in the spirit of open source development and should never be perceived as finished. It should constantly improve: add new sensors, web-visualizations or functionalities in general.
 
 ## CONTRIBUTE
 In the spirit of free software, everyone is invited to contribute to improve this project.
