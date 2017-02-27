@@ -67,7 +67,7 @@ The data must be stored on the board locally, so that a data transfer loss does 
 - new sensors should be easy to add and attach (sw and hw)
 - protect electrical boards from outer influences
 - report errors to user
-- monitoring functions for sensors and other weather station parameters.
+- monitoring of sensors and other weather station parameters.
 
 **Questions:**
 - Arduino or Raspy?
@@ -75,7 +75,7 @@ The data must be stored on the board locally, so that a data transfer loss does 
 - how and when should the collected data be deleted?
 - Is a on/off button needed for the general power supply?
 
-### Sensors
+### Temperature Sensors
 - Specification
 - Calibration: cheap, Certificate
 - low power usage
@@ -83,19 +83,21 @@ The data must be stored on the board locally, so that a data transfer loss does 
 - low measuring error
 
 **Questions:**
+- where should the sensor be stationed?
+- how far away from the station could/should it be?
 - What is the best temporal resolution for the measurement?
 - What sensor must be in the weather station, and which one should be optional as extensions later on?
 - How will the timestamp be created?
 
 ### Housing
+Housing for the weather station. 
 
 **Requirements:**
 - Protect the hardware from outer damage
 - Safeguard correct measurements of the sensors inside
 - durable
 - stable and easy mounting
-
-Housing for the weather station. 
+- where do the station has to be placed? 
 
 **Questions:**
 - Maybe there is already a plan on the web to create one in a 3D printer or by wood.
@@ -120,7 +122,10 @@ Small server to host the data and the webservice.
 - postgreSQL
 - Python3
 - Flask
-- handle endless numbers of weather stations
+- handle endless numbers of weather stations via one server-infrastructure
+
+**Questions**
+- Where should it be hosted?
 
 ### API
 Open data API of the measurements. 
@@ -137,6 +142,7 @@ Open data API of the measurements.
 	- timestamp measurement
 	- result measurement
 - Open: Publlic Domain
+- datastandard for temparuture data
 
 **Questions:**
 - Which software to use for it? Flask?
@@ -156,7 +162,6 @@ Monitor and control the weather station at a web-frontend.
 	- values: outliers, unreasonable results, 
 	- error log
 	- alerts: send sms when critical problems occure
-
 - control:
 	- reset computer
 	- change measuring intervalls
@@ -171,16 +176,11 @@ Visualize the measurements for everyone accessible on a web-frontend. Use the AP
 
 **Requirements:**
 - measures (line chart): default timeintervall, change timeintervall, 
-- change of results (line chart): default timeintervall, change timeintervall, 
 - download plots as PNG, SVG and CSV.
-- distribution of measures: default timeintervall, change timeintervall, 
-- average values: default timeintervall, change timeintervall, 
 - responsive
-- map with all weather stations
 
 **Questions:**
 - Pandas and matplotlib oder D3?
-
 
 ## ADVANCED REQUIREMENTS
 
@@ -203,6 +203,12 @@ Visualize the measurements for everyone accessible on a web-frontend. Use the AP
 **Questions:**
 - is there a combined device with wind-direction and wind-speed?
 
+### Web-Visualizations
+- change of results (line chart): default timeintervall, change timeintervall, 
+- distribution of measures: default timeintervall, change timeintervall, 
+- average values: default timeintervall, change timeintervall, 
+- map with all weather stations
+
 ### Alexa 
 Connect Amazon Alexa to the data/api.
 
@@ -216,7 +222,6 @@ Connect Amazon Alexa to the data/api.
 - how much power is needed for the sensors and the hardware? This depends a lot on the sensors used and how often they measure, next to the operation and sending of the computer.
 
 ### Camera
-
 Create pictures each day at certain timespots over a full year for automated image analysis.
 
 **Requirements:**
@@ -229,6 +234,7 @@ Create pictures each day at certain timespots over a full year for automated ima
 - How to do the power supply?
 
 ### Infrared Camera
+Monitor animals in the night: foxes, cats or deer.
 
 ## PLANING
 
